@@ -1,0 +1,48 @@
+﻿body {
+    background-color: #317BC3;
+}
+header {
+    color: white;
+    height: 75px;
+    font-family: 'Didact Gothic', sans-serif;
+}
+header img{
+    width:48px;
+    height:48px;
+    margin:16px;
+}
+.leftSide{
+    padding-left:50px;
+}
+.rightSide{
+    padding-right:50px;
+}
+.rightSide a {
+    font-size:1.5vw;
+    text-decoration: none;
+    padding:15px;
+    color: white;
+}
+main .background {
+    height:500px;
+    background-image:url("../image/background.jpg");
+    background-size:cover;  
+    background-repeat:no-repeat;
+    background-position:center;
+
+}
+main .background label {
+    font-size:4.5vw;
+    padding-top:7.5%;
+    font-family:'Times New Roman';
+    text-shadow: 0px 0px 10px grey; 
+}
+main .background div{
+    right:0;
+    margin-right:25px;
+}
+main .background div a{
+    color:white;
+    font-size:1.3vw;
+    padding:5px;
+}

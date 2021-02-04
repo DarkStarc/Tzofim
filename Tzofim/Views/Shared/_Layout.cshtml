@@ -1,0 +1,43 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="~/css/index.css" />
+</head>
+<body>
+    @using Microsoft.AspNetCore.Mvc.Localization
+    @using Microsoft.AspNetCore.Localization
+
+    @inject IViewLocalizer localize
+    @inject IHtmlLocalizer<ResourceLocalization> Localizer
+
+    <header class="d-flex flex-nowrap justify-content-between align-items-center shadow">
+        <div class="leftSide d-inline-flex justify-content-start">
+            <img src="~/image/flag.png">
+            <h4 class="align-self-center">@Localizer["Smal_Title"]</h4>
+        </div>
+
+        <div class="rightSide d-inline-flex justify-content-end">
+            @Html.ActionLink(@Localizer["Nav_Main"].Value, "Index", "Main")
+            @Html.ActionLink(@Localizer["Nav_Timetable"].Value, "TimeTable", "Main")
+            @Html.ActionLink(@Localizer["Nav_AboutUs"].Value, "About", "Main")
+            @Html.ActionLink(@Localizer["Nav_Contact"].Value, "About", "Main")
+        </div>
+    </header>
+    <main>
+        <div class="background d-flex w-100 justify-content-center">
+            <div class="position-absolute d-flex justify-content-center">
+                @Html.ActionLink("ua", "SetLanguage","Main",new { @culture = "ua",@returnUrl = Context.Request.Path})
+                @Html.ActionLink("ru","SetLanguage","Main",new {@culture= "ru", @returnUrl = Context.Request.Path })
+                @Html.ActionLink("en","SetLanguage","Main",new { @culture = "en", @returnUrl = Context.Request.Path })
+            </div>
+            <label class="text-white">@Localizer["Title"]</label>
+        </div>
+        @RenderBody()
+    </main>
+</body>
+</html>
