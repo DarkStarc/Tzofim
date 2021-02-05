@@ -1,13 +1,9 @@
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using System.Globalization;
-using Microsoft.AspNetCore.Localization;
-using Microsoft.Extensions.Options;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Tzofim.Models;
 
 namespace Tzofim
 {
@@ -23,6 +19,10 @@ namespace Tzofim
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+           string connectionString = Configuration.GetConnectionString("DefaultConnection");
+
+           services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(connectionString));
+
            services.AddLocalization(p => p.ResourcesPath = "Resource");
 
            services.AddControllersWithViews().AddViewLocalization();
@@ -30,7 +30,7 @@ namespace Tzofim
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app)
+        public void Configure(IApplicationBuilder app,DatabaseContext context)
         {
             var supportLanguage = new[]
                 {
@@ -39,7 +39,7 @@ namespace Tzofim
                     new CultureInfo("en")
                 };
 
-          
+            DbInitializer.Initialize(context);
 
             app.UseRequestLocalization(new RequestLocalizationOptions {
                DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture("ua-Ua"),

@@ -1,3 +1,22 @@
-﻿@{
+﻿@model IEnumerable<Tzofim.Models.News>
+@{
     Layout = "_Layout";
 }
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Localization
+
+@inject IHtmlLocalizer<ResourceLocalization> Localizer
+
+<div class="news w-100">
+    <label class="caption d-block w-100 text-center">@Localizer["News"]</label>
+    <div class="d-flex w-10 flex-column m-5">
+       @foreach(var item in Model)
+       {
+         <div class="d-flex justify-content-around border-bottom border-white">
+             <span class="m-3 w-25">@item.Title</span>
+             <span class="m-3 text-center">@item.NewsText</span>
+             <span class="m-3 w-20">@item.DateTime.ToShortTimeString()</span>
+         </div>
+       }
+    </div>
+</div>

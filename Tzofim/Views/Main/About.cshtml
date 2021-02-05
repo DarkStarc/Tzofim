@@ -1,0 +1,13 @@
+﻿@{
+    Layout = "_Layout";
+}
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Localization
+
+@inject IViewLocalizer localize
+@inject IHtmlLocalizer<ResourceLocalization> Localizer
+
+<div class="about w-100 m5">
+    <label class="caption d-block w-100 text-white text-center">@Localizer["Nav_AboutUs"]</label>
+    <p class="w-75 text-white text-center m-auto">@Localizer["AboutUs"]</p>
+</div>

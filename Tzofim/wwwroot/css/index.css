@@ -1,15 +1,25 @@
 ﻿body {
     background-color: #317BC3;
+    
+}
+::selection{
+    background-color:rgba(0,0,0,0.1);
 }
 header {
     color: white;
-    height: 75px;
     font-family: 'Didact Gothic', sans-serif;
 }
 header img{
-    width:48px;
-    height:48px;
+    width:8vmin;
+    height:8vmin;
     margin:16px;
+}
+header a{
+    text-decoration:none;
+    font-size:3.5vmin;
+}
+header a:hover{
+    text-decoration:none;
 }
 .leftSide{
     padding-left:50px;
@@ -18,7 +28,7 @@ header img{
     padding-right:50px;
 }
 .rightSide a {
-    font-size:1.5vw;
+    font-size: 2.9vmin;
     text-decoration: none;
     padding:15px;
     color: white;
@@ -32,7 +42,7 @@ main .background {
 
 }
 main .background label {
-    font-size:4.5vw;
+    font-size:5vmax;
     padding-top:7.5%;
     font-family:'Times New Roman';
     text-shadow: 0px 0px 10px grey; 
@@ -43,6 +53,33 @@ main .background div{
 }
 main .background div a{
     color:white;
-    font-size:1.3vw;
+    font-size:2.5vmin;
     padding:5px;
+}
+.news {
+    padding-top: 50px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight:300;
+    text-shadow: 0px 0px 10px grey;
+}
+.news div{
+    font-size:2.7vmin;
+}
+.caption {
+    font-family: "Times New Roman";
+    font-size: 4vmax;
+    text-shadow: 0px 0px 10px grey;
+}
+.about {
+    font-size:2.5vmin;
+}
+.contact svg {
+    width: 4.5vmax;
+    height: 4.5vmax;
+    vertical-align:middle;
+}
+.contact span{
+    font-size:2.2vmax;
+    padding:25px;
 }
